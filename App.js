@@ -1,9 +1,9 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStacNavigator } from "@react-navigation/native-stack";
-// import { Login } from "./Pages/Login";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "./Pages/Login.jsx";
 
-const Stack = createNativeStacNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (

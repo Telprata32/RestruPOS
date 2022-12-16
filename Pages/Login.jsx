@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const login = () => {
+const Login = () => {
   return (
     <View>
       <Text>Hello this is the login page</Text>
@@ -9,4 +9,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
