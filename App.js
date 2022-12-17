@@ -10,7 +10,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Login"
-        screenOptions={{ headerMode: "screen", headerTintColor: "teal" }}
+        screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
