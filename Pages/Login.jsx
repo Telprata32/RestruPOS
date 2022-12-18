@@ -14,19 +14,21 @@ const Login = () => {
     <View style={styles.centeredView}>
       <View>
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+          <View style={styles.formView}>
             <Text>Email</Text>
             <TextInput
               onChangeText={changeMail}
               value={email}
               style={styles.Inputs}
             />
-            <Pressable style={styles.button}>
-              <Text style={styles.buttonTextStyle}>Login</Text>
-            </Pressable>
-            <Pressable style={styles.button}>
-              <Text style={styles.buttonTextStyle}>cancel</Text>
-            </Pressable>
+            <View style={{ flexDirection: "row", marginTop: 10 }}>
+              <Pressable style={[styles.button, { marginEnd: 10 }]}>
+                <Text style={styles.buttonTextStyle}>Login</Text>
+              </Pressable>
+              <Pressable style={styles.button}>
+                <Text style={styles.buttonTextStyle}>cancel</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </View>
@@ -41,12 +43,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 22,
   },
-  modalView: {
+  formView: {
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
