@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { primaryColor1, primaryColor2 } from "../assets/Styles";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   Text,
   View,
@@ -10,29 +12,56 @@ import {
 
 const Login = () => {
   const [email, changeMail] = useState("");
+  const [password, changePass] = useState("");
+
   return (
-    <View style={styles.centeredView}>
-      <View>
-        <View style={styles.centeredView}>
-          <View style={styles.formView}>
-            <Text>Email</Text>
-            <TextInput
-              onChangeText={changeMail}
-              value={email}
-              style={styles.Inputs}
-            />
-            <View style={{ flexDirection: "row", marginTop: 10 }}>
-              <Pressable style={[styles.button, { marginEnd: 10 }]}>
-                <Text style={styles.buttonTextStyle}>Login</Text>
-              </Pressable>
-              <Pressable style={styles.button}>
-                <Text style={styles.buttonTextStyle}>cancel</Text>
-              </Pressable>
+    <LinearGradient
+      colors={[primaryColor1, primaryColor2]}
+      start={{ x: 1.5, y: -0.5 }}
+      end={{ x: -0.5, y: 1.5 }}
+      style={{ flex: 1 }}
+    >
+      <View style={styles.centeredView}>
+        <View>
+          <View style={styles.centeredView}>
+            <View style={styles.formView}>
+              <Text style={{ marginBottom: 7 }}>Email</Text>
+              <TextInput
+                onChangeText={changeMail}
+                value={email}
+                style={[styles.Inputs, { marginBottom: 13 }]}
+              />
+              <Text style={{ marginBottom: 7 }}>Password</Text>
+              <TextInput
+                onChangeText={changePass}
+                value={password}
+                style={styles.Inputs}
+              />
+              <View style={{ flexDirection: "row", marginTop: 10 }}>
+                <Pressable style={[styles.button, { marginEnd: 10 }]}>
+                  <LinearGradient
+                    colors={[primaryColor1, primaryColor2]}
+                    start={{ x: 1.5, y: -0.5 }}
+                    end={{ x: -0.5, y: 1.5 }}
+                  >
+                    <Text style={styles.buttonTextStyle}>Login</Text>
+                  </LinearGradient>
+                </Pressable>
+                <Pressable style={styles.button}>
+                  <LinearGradient
+                    colors={[primaryColor1, primaryColor2]}
+                    start={{ x: 1.5, y: -0.5 }}
+                    end={{ x: -0.5, y: 1.5 }}
+                  >
+                    <Text style={styles.buttonTextStyle}>cancel</Text>
+                  </LinearGradient>
+                </Pressable>
+              </View>
             </View>
           </View>
         </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -69,7 +98,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonTextStyle: {
-    color: "rgb(247,72,115)",
+    color: "white",
     fontWeight: "bold",
     textAlign: "center",
   },
