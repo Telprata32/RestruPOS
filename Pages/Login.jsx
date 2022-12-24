@@ -22,43 +22,27 @@ const Login = () => {
       style={{ flex: 1 }}
     >
       <View style={styles.centeredView}>
-        <View>
-          <View style={styles.centeredView}>
-            <View style={styles.formView}>
-              <Text style={{ marginBottom: 7 }}>Email</Text>
-              <TextInput
-                onChangeText={changeMail}
-                value={email}
-                style={[styles.Inputs, { marginBottom: 13 }]}
-              />
-              <Text style={{ marginBottom: 7 }}>Password</Text>
-              <TextInput
-                onChangeText={changePass}
-                value={password}
-                style={styles.Inputs}
-              />
-              <View style={{ flexDirection: "row", marginTop: 10 }}>
-                <Pressable style={[styles.button, { marginEnd: 10 }]}>
-                  <LinearGradient
-                    colors={[primaryColor1, primaryColor2]}
-                    start={{ x: 1.5, y: -0.5 }}
-                    end={{ x: -0.5, y: 1.5 }}
-                  >
-                    <Text style={styles.buttonTextStyle}>Login</Text>
-                  </LinearGradient>
-                </Pressable>
-                <Pressable style={styles.button}>
-                  <LinearGradient
-                    colors={[primaryColor1, primaryColor2]}
-                    start={{ x: 1.5, y: -0.5 }}
-                    end={{ x: -0.5, y: 1.5 }}
-                  >
-                    <Text style={styles.buttonTextStyle}>cancel</Text>
-                  </LinearGradient>
-                </Pressable>
-              </View>
-            </View>
-          </View>
+        <View style={styles.formView}>
+          <Text style={{ marginBottom: 7 }}>Email</Text>
+          <TextInput
+            onChangeText={changeMail}
+            value={email}
+            style={[styles.Inputs, { marginBottom: 13 }]}
+          />
+          <Text style={{ marginBottom: 7 }}>Password</Text>
+          <TextInput
+            onChangeText={changePass}
+            value={password}
+            style={styles.Inputs}
+          />
+          <LinearGradient
+            colors={[primaryColor1, primaryColor2]}
+            start={{ x: 1.5, y: -0.5 }}
+            end={{ x: -0.5, y: 1.5 }}
+            style={styles.button}
+          >
+            <Text style={styles.buttonTextStyle}>Login</Text>
+          </LinearGradient>
         </View>
       </View>
     </LinearGradient>
@@ -69,11 +53,11 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    width: 250,
     marginTop: 22,
+    alignSelf: "center",
   },
   formView: {
-    margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
@@ -87,7 +71,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
+    marginTop: 15,
     borderRadius: 20,
+    alignSelf: "stretch",
     padding: 10,
     elevation: 2,
     backgroundColor: "#ffffff",
