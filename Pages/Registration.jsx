@@ -8,10 +8,9 @@ import {
   StyleSheet,
   Pressable,
   TextInput,
-  Linking,
 } from "react-native";
 
-const Login = ({ navigation }) => {
+const Registration = () => {
   const [email, changeMail] = useState("");
   const [password, changePass] = useState("");
 
@@ -42,23 +41,8 @@ const Login = ({ navigation }) => {
             end={{ x: -0.5, y: 1.5 }}
             style={styles.button}
           >
-            <Text style={styles.buttonTextStyle}>Login</Text>
+            <Text style={styles.buttonTextStyle}>Register</Text>
           </LinearGradient>
-          <Pressable
-            style={[
-              styles.button,
-              {
-                borderColor: primaryColor2,
-                borderWidth: 1,
-                borderStyle: "solid",
-              },
-            ]}
-            onPress={() => {
-              navigation.navigate("Registration");
-            }}
-          >
-            <Text style={{ textAlign: "center" }}>Sign up</Text>
-          </Pressable>
         </View>
       </View>
     </LinearGradient>
@@ -115,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Registration;
