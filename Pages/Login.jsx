@@ -42,7 +42,14 @@ const Login = ({ navigation }) => {
             end={{ x: -0.5, y: 1.5 }}
             style={styles.button}
           >
-            <Text style={styles.buttonTextStyle}>Login</Text>
+            <Text
+              style={styles.buttonTextStyle}
+              onPress={() => {
+                navigation.navigate("Landing");
+              }}
+            >
+              Login
+            </Text>
           </LinearGradient>
           <Pressable
             style={[

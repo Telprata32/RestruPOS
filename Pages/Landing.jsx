@@ -1,19 +1,11 @@
+// This page is the landing page upon signing into an account for the first time (i.e. First Time Setup)
 import React, { useState } from "react";
-import { primaryColor1, primaryColor2 } from "../assets/Styles";
+import { Text, View, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import {
-  Text,
-  View,
-  Modal,
-  StyleSheet,
-  Pressable,
-  TextInput,
-} from "react-native";
-import { NavigationHelpersContext } from "@react-navigation/native";
+import { primaryColor1, primaryColor2 } from "../assets/Styles";
 
-const Registration = ({ navigation }) => {
-  const [email, changeMail] = useState("");
-  const [password, changePass] = useState("");
+const Landing = () => {
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <LinearGradient
@@ -24,32 +16,16 @@ const Registration = ({ navigation }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.formView}>
-          <Text style={{ marginBottom: 7 }}>Email</Text>
-          <TextInput
-            onChangeText={changeMail}
-            value={email}
-            style={[styles.Inputs, { marginBottom: 13 }]}
-          />
-          <Text style={{ marginBottom: 7 }}>Password</Text>
-          <TextInput
-            onChangeText={changePass}
-            value={password}
-            style={styles.Inputs}
-          />
+          <Text style={styles.textStyle}>
+            This account has yet to add a restaurant profile, create one.
+          </Text>
           <LinearGradient
             colors={[primaryColor1, primaryColor2]}
             start={{ x: 1.5, y: -0.5 }}
             end={{ x: -0.5, y: 1.5 }}
             style={styles.button}
           >
-            <Text
-              style={styles.buttonTextStyle}
-              onPress={() => {
-                navigation.navigate("Landing");
-              }}
-            >
-              Register
-            </Text>
+            <Text style={styles.buttonTextStyle}>+</Text>
           </LinearGradient>
         </View>
       </View>
@@ -79,22 +55,25 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    marginTop: 15,
-    borderRadius: 20,
-    alignSelf: "stretch",
+    marginTop: 30,
+    borderRadius: 10,
+    alignSelf: "center",
+    justifyContent: "center",
+    width: 100,
+    height: 60,
     padding: 10,
     elevation: 2,
     backgroundColor: "#ffffff",
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: "#7C7C7C",
   },
   buttonTextStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
+    fontFamily: "Roboto",
+    fontSize: 29,
   },
   modalText: {
     marginBottom: 15,
@@ -107,4 +86,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Registration;
+export default Landing;
