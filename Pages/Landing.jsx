@@ -1,6 +1,6 @@
 // This page is the landing page upon signing into an account for the first time (i.e. First Time Setup)
 import React, { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, Modal, View, StyleSheet, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { primaryColor1, primaryColor2 } from "../assets/Styles";
 
@@ -14,6 +14,24 @@ const Landing = () => {
       end={{ x: -0.5, y: 1.5 }}
       style={{ flex: 1 }}
     >
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.modal.centeredView}>
+          <View style={styles.modalView}>
+            <Pressable>
+              <Image source={require("../assets/Icons/")} />
+            </Pressable>
+            <Text style={styles.modal.modalText}>Hello World!</Text>
+          </View>
+        </View>
+      </Modal>
       <View style={styles.centeredView}>
         <View style={styles.formView}>
           <Text style={styles.textStyle}>
@@ -25,7 +43,14 @@ const Landing = () => {
             end={{ x: -0.5, y: 1.5 }}
             style={styles.button}
           >
-            <Text style={styles.buttonTextStyle}>+</Text>
+            <Text
+              style={styles.buttonTextStyle}
+              onPress={() => {
+                setModalVisible(true);
+              }}
+            >
+              +
+            </Text>
           </LinearGradient>
         </View>
       </View>
@@ -83,6 +108,33 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 0.2,
     borderRadius: 6,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modal: {
+    centeredView: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "rgba(0,0,0,0.5)",
+    },
+    modalText: {
+      marginBottom: 15,
+      textAlign: "center",
+    },
   },
 });
 
